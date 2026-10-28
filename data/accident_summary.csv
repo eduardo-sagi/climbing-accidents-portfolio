@@ -1,0 +1,14 @@
+dataset_id,country,period,modality,environment,unit,n_or_estimate,metric,value,source_id,limitation
+sweden_acute,swe,2008-2019,sport;boulder;traditional,outdoor,lesion_record,38,fall_association,swe_outdoor_38,descriptive_study_sample
+us_neiss,usa,2014-2023,rock_climbing,mixed,estimated_emergency_visits,47251,fall_share,58.8,us_neiss,weighted_emergency_estimate
+us_neiss,usa,2014-2023,rock_climbing,mixed,estimated_emergency_visits,47251,lower_limb_share,50.6,us_neiss,weighted_emergency_estimate
+us_neiss,usa,2014-2023,rock_climbing,mixed,estimated_emergency_visits,47251,fracture_share,26.8,us_neiss,weighted_emergency_estimate
+us_neiss,usa,2014-2023,rock_climbing,mixed,estimated_emergency_visits,47251,hospitalisation_share,9.0,us_neiss,weighted_emergency_estimate
+aac_anac_derived,usa;can,1989-2018,sport;boulder;traditional;multi_pitch,mixed,accident_report,2724,climbing_records,2724,aac_anac_ecaroom,selected_reports_overlapping_tags
+aac_anac_derived,usa;can,1989-2018,sport;boulder;traditional;multi_pitch,mixed,accident_report,2724,belay_error_count,126,aac_anac_ecaroom,overlapping_mechanism_tags
+aac_anac_derived,usa;can,1989-2018,sport;boulder;traditional;multi_pitch,mixed,accident_report,2724,anchor_failure_error_count,133,aac_anac_ecaroom,overlapping_mechanism_tags
+aac_anac_derived,usa;can,1989-2018,sport;boulder;traditional;multi_pitch,mixed,accident_report,2724,descent_count,865,aac_anac_ecaroom,overlapping_mechanism_tags
+aac_anac_derived,usa;can,1989-2018,sport;boulder;traditional;multi_pitch,mixed,accident_report,2724,rappel_error_count,251,aac_anac_ecaroom,overlapping_mechanism_tags
+iatr,mixed,publication_2020,climbing_within_mountain_frame,mountain;remote,severe_trauma_patient,306,climbing_accidents,37,iatr_2020,ISS_ge_16_and_not_all_accidents
+germany_boulder,deu,2010-2020,boulder,urban_hospital,patient,430,acute_injuries,447,germany_boulder_2022,hospital_cohort_not_incidence
+dav_klever,deu;aut,2025,sport;boulder,indoor,reported_or_evaluated_case,341,reported_accidents,341,dav_klever_2025,reported_and_evaluated_subsets_differ
