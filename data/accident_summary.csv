@@ -1,5 +1,5 @@
 dataset_id,country,period,modality,environment,unit,n_or_estimate,metric,value,source_id,limitation
-sweden_acute,swe,2008-2019,sport;boulder;traditional,outdoor,lesion_record,38,fall_association,swe_outdoor_38,descriptive_study_sample
+sweden_acute,swe,2008-2019,sport;boulder;traditional,outdoor,lesion_record,38,fall_association,38,swe_outdoor_38,descriptive_study_sample
 us_neiss,usa,2014-2023,rock_climbing,mixed,estimated_emergency_visits,47251,fall_share,58.8,us_neiss,weighted_emergency_estimate
 us_neiss,usa,2014-2023,rock_climbing,mixed,estimated_emergency_visits,47251,lower_limb_share,50.6,us_neiss,weighted_emergency_estimate
 us_neiss,usa,2014-2023,rock_climbing,mixed,estimated_emergency_visits,47251,fracture_share,26.8,us_neiss,weighted_emergency_estimate

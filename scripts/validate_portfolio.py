@@ -33,8 +33,14 @@ def main(path):
             errors.append(f'broken anchor: {href}')
     if re.search(r'(?i)overuse|sobreuso|performance|tendinopatia|tendinopathy', text):
         errors.append('forbidden overuse/performance vocabulary')
-    required = ['EUA', 'NEISS', 'AAC/ANAC', 'IATR', 'Agrupamento possível', 'Fontes e rastreabilidade']
-    for item in required:
+    lang = re.search(r'<html\s+lang="([^"]+)"', text)
+    language = lang.group(1) if lang else 'unknown'
+    required_by_language = {
+        'pt-BR': ['EUA', 'NEISS', 'AAC/ANAC', 'IATR', 'Agrupamento possível', 'Fontes e rastreabilidade'],
+        'en': ['USA', 'NEISS', 'AAC/ANAC', 'IATR', 'What we will not do', 'Sources and traceability'],
+        'es': ['EE. UU.', 'NEISS', 'AAC/ANAC', 'IATR', 'Lo que no haremos', 'Fuentes y trazabilidad'],
+    }
+    for item in required_by_language.get(language, required_by_language['pt-BR']):
         if item not in text: errors.append(f'missing required evidence: {item}')
     if errors:
         for error in errors: print(f'FAIL: {error}')

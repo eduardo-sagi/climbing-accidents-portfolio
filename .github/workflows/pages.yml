@@ -19,8 +19,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate public portfolio
-        run: python3 scripts/validate_portfolio.py index.html
+      - name: Validate public portfolio and database
+        run: |
+          python3 scripts/build_database.py --repo . --output /tmp/climbing_accidents.sqlite
+          python3 scripts/validate_portfolio.py index.html
+          python3 scripts/validate_portfolio.py index-en.html
+          python3 scripts/validate_portfolio.py index-es.html
+          python3 - <<'PY'
+          import sqlite3
+          db = sqlite3.connect('/tmp/climbing_accidents.sqlite')
+          assert db.execute('select count(*) from sources').fetchone()[0] >= 10
+          assert db.execute('select count(*) from repositories').fetchone()[0] >= 6
+          assert db.execute('select count(*) from metrics').fetchone()[0] >= 13
+          assert not db.execute('pragma foreign_key_check').fetchall()
+          print('DATABASE_SCHEMA_QA_OK')
+          PY
 
   deploy:
     needs: validate

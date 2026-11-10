@@ -1,0 +1,7 @@
+repository_id,url,title,upstream_source_id,independent_database,coverage,analysis_role,license_status,notes
+repo_ecaroom,https://github.com/ecaroom/climbing-accidents,Climbing Accidents Data Repository,aac_anac_ecaroom,0,publication 1990-2019; incidents mainly 1989-2018,derived_dataset,not_assessed,Structured AAC/ANAC-derived records and tags
+repo_ilias_ant,https://github.com/ilias-ant/american-alpine-club-articles,American Alpine Club articles,AAC_ANAC,0,various AAC articles,corpus_discovery,not_assessed,Lineage overlaps AAC/ANAC and AAJ; deduplicate before analysis
+repo_anam_vis,https://github.com/mikeskaug/ANAM_Vis,ANAM accident visualisation,AAC_ANAC,0,1951-2015,analysis_visualisation,not_assessed,Historical visualisation; not independent event database
+repo_climbing_accident_causes,https://github.com/natejfoster/ClimbingAccidentCauses,Climbing accident causes,AAC_ANAC,0,various,derived_analysis,not_assessed,Derived analysis; inspect code and source lineage before reuse
+repo_why_climbers_get_hurt,https://github.com/BearelyKoalified/why-climbers-get-hurt,Why climbers get hurt,AAC_ANAC,0,various,derived_analysis,not_assessed,Derived analysis; not independent observations
+repo_cmr_oake_anac,https://github.com/cmroake/ANAC,ANAC analysis repository,AAC_ANAC,0,various,derived_analysis,not_assessed,Derived analysis and/or visualisation; deduplicate against upstream

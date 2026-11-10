@@ -1,0 +1,46 @@
+modalities:
+  - sport_climbing
+  - bouldering
+  - traditional
+  - multi_pitch
+  - mixed_climbing
+  - unknown
+environments:
+  - indoor
+  - outdoor
+  - urban_hospital
+  - mountain_remote
+  - mixed
+  - unknown
+event_types:
+  - accident
+  - incident
+  - near_miss
+  - rescue
+  - safety_discussion
+evidence_status:
+  - published
+  - primary_register
+  - derived_dataset
+  - reported_unverified
+  - hypothesis
+  - context_only
+observation_units:
+  - accident_report
+  - emergency_visit
+  - patient
+  - injury
+  - severe_trauma_patient
+  - near_miss
+  - qualitative_report
+metrics:
+  - fall_association
+  - lower_limb_share
+  - fracture_share
+  - hospitalisation_share
+  - belay_error_count
+  - anchor_failure_error_count
+  - descent_count
+  - rappel_error_count
+  - acute_injuries
+  - reported_accidents

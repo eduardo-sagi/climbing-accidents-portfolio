@@ -38,6 +38,18 @@ The repository publishes:
 
 The repository does **not** redistribute the raw AAC/ANAC workbook or hospital microdata. Those materials remain linked to their original public publishers; the derived values are documented with source, period, unit and limitation. GitHub repositories derived from AAC/ANAC are treated as lineage, not independent databases.
 
+## Data model v2
+
+The repository now includes a federated SQLite build and a public data contract:
+
+- [`schema/data_dictionary.md`](schema/data_dictionary.md)
+- [`schema/vocabularies.yml`](schema/vocabularies.yml)
+- [`data/repositories.csv`](data/repositories.csv)
+- [`data/climbing_accidents.sqlite`](data/climbing_accidents.sqlite)
+- [`scripts/build_database.py`](scripts/build_database.py)
+
+GitHub-derived repositories are registered as lineage and are not counted as independent databases. The private WhatsApp qualitative layer is processed locally only; the raw export, participant identifiers and event-level private details are not published.
+
 ## Evidence model
 
 The sources are federated into compatible layers rather than added into one total:
