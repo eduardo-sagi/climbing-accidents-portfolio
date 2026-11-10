@@ -104,6 +104,22 @@ def build_metrics(conn: sqlite3.Connection, rows: list[dict[str, str]]) -> None:
         )
 
 
+def mechanism_tags(row: dict[str, str]) -> list[str]:
+    text = f"{row['topic']} {row['signals']}".lower()
+    patterns = {
+        "descent_or_rappel": ("rapel", "rappel", "descida", "descender"),
+        "belay_or_braking_device": ("atc", "grigri", "gigajul", "assegur", "freio"),
+        "anchor_or_fixed_protection": ("ancor", "chapa", "costura", "proteção", "protec"),
+        "rope_or_knot": ("corda", "nó", "no nas", "laço", "laco"),
+        "communication_or_check": ("chec", "check", "confer", "comunica", "rádio", "radio", "double"),
+        "equipment_positioning": ("mosquet", "borrach", "equipamento", "device", "dispositivo"),
+        "fall_or_impact": ("queda", "cai", "impact", "pedra", "rocha", "agarrinha"),
+        "training_or_procedure": ("proced", "formação", "formacao", "operador", "experi", "barreira"),
+    }
+    tags = [tag for tag, words in patterns.items() if any(word in text for word in words)]
+    return tags or ["unclassified_reported_topic"]
+
+
 def build_qualitative(conn: sqlite3.Connection, ledger: Path) -> None:
     data = json.loads(ledger.read_text(encoding="utf-8"))
     for i, r in enumerate(data, 1):
@@ -112,14 +128,15 @@ def build_qualitative(conn: sqlite3.Connection, ledger: Path) -> None:
             """INSERT INTO qualitative_events VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (qid, "whatsapp_climbing_accidents_2026", r["period"], r["topic"],
              "unknown", "mixed", "near_miss" if "quase" in r["topic"].lower() else "safety_discussion",
-             r["signals"], "double_check_or_procedure", r["status"],
+             r["signals"], "reported_barrier_or_procedure", r["status"],
              "reported_unverified", "not_assessed",
              "Private source; do not publish raw text or participant identifiers."),
         )
-        conn.execute(
-            "INSERT INTO mechanisms (qualitative_id,mechanism,role,evidence_status) VALUES (?,?,?,?)",
-            (qid, r["topic"], "reported_topic", "reported_unverified"),
-        )
+        for tag in mechanism_tags(r):
+            conn.execute(
+                "INSERT INTO mechanisms (qualitative_id,mechanism,role,evidence_status) VALUES (?,?,?,?)",
+                (qid, tag, "reported_signal", "reported_unverified"),
+            )
 
 
 def main() -> None:
