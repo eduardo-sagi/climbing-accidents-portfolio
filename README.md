@@ -9,8 +9,12 @@ Reproducible, evidence-bounded portfolio on acute accidents in:
 
 ## Public portfolio
 
-- [Open the portfolio](index.html)
+- [Português](index.html)
+- [English](index-en.html)
+- [Español](index-es.html)
 - GitHub Pages: `https://eduardo-sagi.github.io/climbing-accidents-portfolio/`
+
+The three pages use the same evidence scope and source boundary. The English and Spanish versions are editorial translations of the portfolio; they do not add new datasets or claims.
 
 The portfolio is an editorial interface over a federated evidence inventory. It does **not** claim a worldwide incidence, prevalence, or total number of climbing accidents.
 
